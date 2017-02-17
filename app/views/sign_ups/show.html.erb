@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @sign_up.email %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @sign_up.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @sign_up.lastname %>
+</p>
+
+<p>
+  <strong>Companyname:</strong>
+  <%= @sign_up.companyname %>
+</p>
+
+<p>
+  <strong>Companysize:</strong>
+  <%= @sign_up.companysize %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @sign_up.phonenumber %>
+</p>
+
+<%= link_to 'Edit', edit_sign_up_path(@sign_up) %> |
+<%= link_to 'Back', sign_ups_path %>

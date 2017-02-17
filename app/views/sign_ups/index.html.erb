@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sign Ups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Companyname</th>
+      <th>Companysize</th>
+      <th>Phonenumber</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sign_ups.each do |sign_up| %>
+      <tr>
+        <td><%= sign_up.email %></td>
+        <td><%= sign_up.firstname %></td>
+        <td><%= sign_up.lastname %></td>
+        <td><%= sign_up.companyname %></td>
+        <td><%= sign_up.companysize %></td>
+        <td><%= sign_up.phonenumber %></td>
+        <td><%= link_to 'Show', sign_up %></td>
+        <td><%= link_to 'Edit', edit_sign_up_path(sign_up) %></td>
+        <td><%= link_to 'Destroy', sign_up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sign up', new_sign_up_path %>
