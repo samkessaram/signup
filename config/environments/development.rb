@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  # DOUBLE IGNORE TEST
+  # TRIPLE IGNORE TEST
 
   # Settings specified here will take precedence over those in config/application.rb.
 
