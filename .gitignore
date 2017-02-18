@@ -15,4 +15,4 @@
 /log/*
 !/log/.keep
 /tmp
-/config/environments/development.rb
+config/environments/development.rb

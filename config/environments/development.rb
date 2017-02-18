@@ -1,7 +1,7 @@
 Rails.application.configure do
 
-  # IGNORE TEST
-  
+  # DOUBLE IGNORE TEST
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
