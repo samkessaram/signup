@@ -5,6 +5,7 @@ class SignUpsController < ApplicationController
   # GET /sign_ups.json
   def index
     @sign_ups = SignUp.all
+    @sign_up = SignUp.new
   end
 
   # GET /sign_ups/1
@@ -26,15 +27,30 @@ class SignUpsController < ApplicationController
   def create
     @sign_up = SignUp.new(sign_up_params)
 
-    respond_to do |format|
-      if @sign_up.save
-        format.html { redirect_to @sign_up, notice: 'Sign up was successfully created.' }
-        format.json { render :show, status: :created, location: @sign_up }
+    email = @sign_up.email
+
+    @error = 'Invalid e-mail'
+
+    begin
+      response = Clearbit::Enrichment.find(email: email, stream: true)
+      if response
+        @name = response.person.name.fullName
+        @company_name = response.person.employment.name
+        @error = nil
       else
+      end
+
+      respond_to do |format|
         format.html { render :new }
-        format.json { render json: @sign_up.errors, status: :unprocessable_entity }
+        format.js
+      end
+    rescue Nestful::ResourceInvalid
+      respond_to do |format|
+        format.html { render :new }
+        format.js
       end
     end
+    
   end
 
   # PATCH/PUT /sign_ups/1
@@ -69,6 +85,6 @@ class SignUpsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sign_up_params
-      params.require(:sign_up).permit(:email, :firstname, :lastname, :companyname, :companysize, :phonenumber)
+      params.require(:sign_up).permit(:email, :name, :companyname, :role)
     end
 end

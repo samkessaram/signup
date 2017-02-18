@@ -1,4 +1,4 @@
-<%= form_for(@sign_up) do |f| %>
+<%= form_for [@sign_up], remote:true do |f| %>
   <% if @sign_up.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sign_up.errors.count, "error") %> prohibited this sign_up from being saved:</h2>
@@ -16,24 +16,20 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :firstname %><br>
-    <%= f.text_field :firstname %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
+    <label for="sign_up_company_name">Company Name</label><br>
+    <%= f.text_field :company_name %>
   </div>
-  <div class="field">
-    <%= f.label :companyname %><br>
-    <%= f.text_field :companyname %>
+    <div class="field">
+    <%= f.label :company_size %><br>
+    <%= f.text_field :company_size %>
   </div>
-  <div class="field">
-    <%= f.label :companysize %><br>
-    <%= f.text_field :companysize %>
-  </div>
-  <div class="field">
-    <%= f.label :phonenumber %><br>
-    <%= f.text_field :phonenumber %>
+    <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
   </div>
   <div class="actions">
     <%= f.submit %>

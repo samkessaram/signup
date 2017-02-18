@@ -18,13 +18,12 @@ ActiveRecord::Schema.define(version: 20170217205147) do
 
   create_table "sign_ups", force: :cascade do |t|
     t.string   "email"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "companyname"
-    t.string   "companysize"
-    t.string   "phonenumber"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.string   "company_name"
+    t.string   "company_size"
+    t.string   "phone_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

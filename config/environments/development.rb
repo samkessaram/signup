@@ -1,5 +1,7 @@
 Rails.application.configure do
 
+  Clearbit.key = ENV["clearbit_key"]
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

@@ -2,11 +2,10 @@ class CreateSignUps < ActiveRecord::Migration
   def change
     create_table :sign_ups do |t|
       t.string :email
-      t.string :firstname
-      t.string :lastname
-      t.string :companyname
-      t.string :companysize
-      t.string :phonenumber
+      t.string :name
+      t.string :company_name
+      t.string :company_size
+      t.string :phone_number
 
       t.timestamps null: false
     end
