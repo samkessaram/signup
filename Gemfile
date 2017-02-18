@@ -9,6 +9,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use to access Clearbit API
 gem 'clearbit'
 
+# Use to set ENV variables
+gem 'figaro'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
