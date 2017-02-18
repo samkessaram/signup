@@ -1,7 +1,13 @@
 source 'https://rubygems.org'
 
-# use PostGreSQL for Heroku
+# Use PostGreSQL for Heroku
 gem 'pg'
+
+# Use Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# Use to access Clearbit API
+gem 'clearbit'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
