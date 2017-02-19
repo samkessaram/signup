@@ -5,7 +5,7 @@ $(function(){
   var keyPressPause; 
 
   document.getElementById('sign_up_email').addEventListener('keydown', function(e) {
-    
+    $('#email-warning').hide();
     window.clearTimeout(keyPressPause)
     keyPressPause = window.setTimeout(function(){
       submitForm();
@@ -29,7 +29,7 @@ $(function(){
   function submitForm() {
     window.clearTimeout(keyPressPause)
 
-    if ( $('#sign_up_email').val().match(/\w+@\w+/) !== null ){
+    if ( $('#sign_up_email').val().match(/\w+@\w+\.\w+/) !== null ){
       $('#new_sign_up').submit();
       console.log('submit')
       $('#email-warning').hide();
