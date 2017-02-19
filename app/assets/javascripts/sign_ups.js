@@ -37,12 +37,14 @@ $(function(){
       if ( email !== $('#sign_up_email').val() ){
         email = $('#sign_up_email').val();
         $('#new_sign_up').submit();
-        console.log('submit')
+        // console.log('submit')
         disableForm();
       }
       $('#email-warning').hide();
     } else {
-      $('#email-warning').show();
+      if ( $('#sign_up_email').val() !== '' ){
+        $('#email-warning').show();
+      }
     }
   }
 

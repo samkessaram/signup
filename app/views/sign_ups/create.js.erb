@@ -14,12 +14,11 @@ function expandContainer(){
     highlightMissingFields()
   } else {
     $('#form-container').addClass('expanded');
+    window.setTimeout(function(){
+      highlightMissingFields();
+    },500)
   }
 }
-
-$('#form-container').bind('transitionend',function(){
-  highlightMissingFields();
-})
 
 function highlightMissingFields(){
   var children = $('#hidden-form').find('input');
