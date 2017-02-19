@@ -40,7 +40,7 @@ class SignUpsController < ApplicationController
         @company_name = response.person.employment.name
 
         if response.company
-          @phone_number = response.company.phone
+          @phone_number = response.company.phone || response.company.site.phoneNumbers[0]
           @company_size = response.company.metrics.employees
         end
         
