@@ -1,9 +1,29 @@
-// $.ajax({
-//   type: 'GET'
-// })
+$('#form-container').css('height','693px')
+$('#form-container').bind('transitionend',function(){
+  focusEmptyField();
+})
+
+function focusEmptyField(){
+  var children = $('#hidden-form').find('input');
+  var emptyField = false;
+
+  for ( var i = -1; emptyField === false; ++i ){
+    if ($(children[i]).val() === ''){
+      $(children[i]).focus();
+      emptyField = true
+    }
+
+    if ( i === children.length ){
+      emptyField = true
+    }
+  }
+}
+
 if ('<%= @error %>') {
   console.log('error modal')
 }
 
 $('#sign_up_name').val('<%= @name %>')
-$('#sign_up_companyname').val('<%= @company_name %>')
+$('#sign_up_company_name').val('<%= @company_name %>')
+$('#sign_up_company_size').val('<%= @company_size %>')
+$('#sign_up_phone_number').val('<%= @phone_number %>')

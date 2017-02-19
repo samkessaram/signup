@@ -12,26 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :email %>
+    <p id="email-warning">*Please enter a valid email address.</p><br>
+    <%= f.email_field :email, autocomplete: 'email', required: true %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <label for="sign_up_company_name">Company Name</label><br>
-    <%= f.text_field :company_name %>
-  </div>
+
+  <div id="hidden-form">
     <div class="field">
-    <%= f.label :company_size %><br>
-    <%= f.text_field :company_size %>
-  </div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
     <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+      <label for="sign_up_company_name">Company Name</label><br>
+      <%= f.text_field :company_name %>
+    </div>
+      <div class="field">
+      <%= f.label :company_size %><br>
+      <%= f.text_field :company_size %>
+    </div>
+      <div class="field">
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

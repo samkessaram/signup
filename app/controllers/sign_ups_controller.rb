@@ -36,8 +36,9 @@ class SignUpsController < ApplicationController
       if response
         @name = response.person.name.fullName
         @company_name = response.person.employment.name
+        p @name
+        p @company_name
         @error = nil
-      else
       end
 
       respond_to do |format|
@@ -85,6 +86,6 @@ class SignUpsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sign_up_params
-      params.require(:sign_up).permit(:email, :name, :companyname, :role)
+      params.require(:sign_up).permit(:email, :name, :company_name, :company_size, :phone_number)
     end
 end

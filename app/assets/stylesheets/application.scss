@@ -15,3 +15,65 @@
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  text-align: center;
+  background-color: #FAFBFC;
+  font-family: 'Nunito', sans-serif;
+}
+
+#form-container {
+  margin: 75px 0;
+  width: 416px;
+  padding: 32px;
+  border: 1px solid #C7E4FF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  background: #F2F9FF;
+  display: inline-block;
+  overflow: hidden;
+  height: 250px;
+  transition-property: height;
+  transition-duration: 0.3s;
+}
+
+h1 {
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #C7E4FF;
+  color: #00386C;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+label {
+  margin-bottom: 16px;
+  color: #00386C;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0;
+  float: left;
+}
+
+input {
+  width: 100%;
+  padding: 4px 8px;
+  margin-bottom: 32px;
+  border: 1px solid #C7E4FF;
+  border-radius: 5px;
+  color: inherit;
+}
+
+#email-warning {
+  display: none;
+  margin: 0;
+  position: relative;
+  left: -30px;
+  top: 3px;
+  color: #d60202;
+}
