@@ -51,3 +51,7 @@ function decodeEntities(encodedString) {
   textArea.innerHTML = encodedString;
   return textArea.value;
 }
+
+if('<%= @error %>'){
+  $('#form-container').before("<p style='background-color:red'>If you're seeing this, it means that many people have been testing this out and Sam exceeded his quota for the API. Thanks for participating!</p>")
+}

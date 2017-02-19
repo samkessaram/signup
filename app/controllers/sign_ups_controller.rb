@@ -29,8 +29,6 @@ class SignUpsController < ApplicationController
 
     email = @sign_up.email
 
-    @error = 'Invalid e-mail'
-
     begin
       response = Clearbit::Enrichment.find(email: email, stream: true)
 
@@ -43,8 +41,6 @@ class SignUpsController < ApplicationController
           @phone_number = response.company.phone || response.company.site.phoneNumbers[0]
           @company_size = response.company.metrics.employees || response.company.metrics.employeesRange
         end
-        
-        @error = nil
       end
 
       respond_to do |format|
@@ -54,6 +50,11 @@ class SignUpsController < ApplicationController
     rescue Nestful::ResourceInvalid
       respond_to do |format|
         format.html { render :new }
+        format.js
+      end
+    rescue Nestful::ClientError
+      @error = true
+      respond_to do |format|
         format.js
       end
     end
