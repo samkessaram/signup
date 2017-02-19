@@ -27,11 +27,11 @@ $(function(){
   })
 
   function submitForm() {
-    console.log('submit')
     window.clearTimeout(keyPressPause)
 
     if ( $('#sign_up_email').val().match(/\w+@\w+/) !== null ){
       $('#new_sign_up').submit();
+      console.log('submit')
       $('#email-warning').hide();
     } else {
       $('#email-warning').show();
