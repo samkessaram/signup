@@ -83,12 +83,18 @@ input:-webkit-autofill {
 #email-warning {
   display: none;
   margin: 0;
-  position: relative;
-  left: -30px;
-  top: 3px;
+  position: absolute;
+  left: auto;
+  top: 242px;
 }
 
 .warning {
   color: #d60202;
   display: block
+}
+
+@media only screen and (max-width: 500px) {
+  #form-container {
+    width: 90%;
+  }
 }
