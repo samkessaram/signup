@@ -56,5 +56,7 @@ $(function(){
     }
   }
 
+  $('#sign_up_email').focus(function(){ $(this).select()})
+
 })
 
