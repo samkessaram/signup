@@ -37,6 +37,10 @@ body {
   transition-duration: 0.5s;
 }
 
+#form-container.expanded {
+  height: 725px;
+}
+
 h1 {
   padding-bottom: 32px;
   margin-bottom: 32px;

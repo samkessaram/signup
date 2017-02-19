@@ -10,10 +10,10 @@ function populateForm(){
 }
 
 function expandContainer(){
-  if ($('#form-container').css('height') === '725px'){
+  if ($('#form-container').hasClass('expanded')){
     highlightMissingFields()
   } else {
-    $('#form-container').css('height','725px');
+    $('#form-container').addClass('expanded');
   }
 }
 
