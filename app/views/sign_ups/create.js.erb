@@ -6,18 +6,15 @@ $('#form-container').bind('transitionend',function(){
 
 function focusEmptyField(){
   var children = $('#hidden-form').find('input');
-  var emptyField = false;
+  var index;
 
-  for ( var i = -1; emptyField === false; ++i ){
+  for ( var i = 0; i < children.length; i++ ){
     if ($(children[i]).val() === ''){
-      $(children[i]).focus();
-      emptyField = true
-    }
-
-    if ( i === children.length ){
-      emptyField = true
+      index = index || i
     }
   }
+
+  $(children[index]).focus();
 }
 
 function enableFields(){
