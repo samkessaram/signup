@@ -1,3 +1,4 @@
+enableFields();
 $('#form-container').css('height','693px')
 $('#form-container').bind('transitionend',function(){
   focusEmptyField();
@@ -16,6 +17,14 @@ function focusEmptyField(){
     if ( i === children.length ){
       emptyField = true
     }
+  }
+}
+
+function enableFields(){
+  var children = $('#hidden-form').find('input');
+
+  for ( var i = 0; i < children.length; i++ ){
+    $(children[i]).attr('disabled',false);
   }
 }
 

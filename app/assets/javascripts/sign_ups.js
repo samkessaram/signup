@@ -40,4 +40,10 @@ $(function(){
 function submitForm() {
   $('#new_sign_up').submit();
   $('#email-warning').hide();
+
+  var children = $('#hidden-form').find('input');
+
+  for ( var i = 0; i < children.length; i++ ){
+    $(children[i]).attr('disabled',true);
+  }
 }

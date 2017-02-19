@@ -69,6 +69,10 @@ input {
   color: inherit;
 }
 
+input:disabled {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
 #email-warning {
   display: none;
   margin: 0;
