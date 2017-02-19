@@ -1,6 +1,7 @@
 $(function(){
 
   // To ensure submit is called only once is two listeners are fired together
+  var email;
   var timestamp;
   var keyPressPause; 
 
@@ -9,12 +10,15 @@ $(function(){
     window.clearTimeout(keyPressPause)
     keyPressPause = window.setTimeout(function(){
       submitForm();
-    },3000)
+    },2000)
 
 
     e = e || event
     if ( e.key === 'Tab' || e.key === 'Enter' ){
-      e.preventDefault()
+      if ( !$('#form-container').hasClass('expanded') ){
+        e.preventDefault()
+      }
+      
 
       // Hacky way of preventing focus shifting, thus scrolling the div
       // $('#sign_up_email').focus();
@@ -30,13 +34,19 @@ $(function(){
     window.clearTimeout(keyPressPause)
 
     if ( $('#sign_up_email').val().match(/\w+@\w+\.\w+/) !== null ){
-      $('#new_sign_up').submit();
-      console.log('submit')
+      if ( email !== $('#sign_up_email').val() ){
+        email = $('#sign_up_email').val();
+        $('#new_sign_up').submit();
+        console.log('submit')
+        disableForm();
+      }
       $('#email-warning').hide();
     } else {
       $('#email-warning').show();
     }
+  }
 
+  function disableForm(){
     if ( $('#form-container').hasClass('expanded')){
       var children = $('#hidden-form').find('input');
 
@@ -44,7 +54,6 @@ $(function(){
         $(children[i]).attr('disabled',true);
       }
     }
-
   }
 
 })
