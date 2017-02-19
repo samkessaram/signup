@@ -73,13 +73,19 @@ input:disabled {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
+
+/*Prevent input background yellowing in Chrome. From http://labs.enonic.com/articles/remove-forced-yellow-input-background-in-chrome */
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 #email-warning {
   display: none;
   margin: 0;
   position: relative;
   left: -30px;
   top: 3px;
-
 }
 
 .warning {

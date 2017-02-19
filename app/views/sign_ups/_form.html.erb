@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :email %>
-    <p id="email-warning">*Please enter a valid email address.</p><br>
+    <p class="warning" id="email-warning">*Please enter a valid email address.</p><br>
     <%= f.email_field :email, autocomplete: 'email', required: true %>
   </div>
 
@@ -23,7 +23,7 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <label for="sign_up_company_name">Company Name</label><br>
+      <%= f.label 'Company Name' %><br>
       <%= f.text_field :company_name %>
     </div>
       <div class="field">
@@ -35,5 +35,7 @@
       <%= f.text_field :phone_number %>
     </div>
   </div>
+
+  <p>Please fill in all fields.</p>
 
 <% end %>
