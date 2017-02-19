@@ -1,16 +1,35 @@
+populateForm();
 enableFields();
-$('#form-container').css('height','693px')
+expandContainer();
+
+function populateForm(){
+  $('#sign_up_name').val('<%= @name %>')
+  $('#sign_up_company_name').val('<%= @company_name %>')
+  $('#sign_up_company_size').val('<%= @company_size %>')
+  $('#sign_up_phone_number').val('<%= @phone_number %>')
+}
+
+function expandContainer(){
+  if ($('#form-container').css('height') === '693px'){
+    highlightMissingFields()
+  } else {
+    $('#form-container').css('height','693px');
+  }
+}
+
 $('#form-container').bind('transitionend',function(){
-  focusEmptyField();
+  highlightMissingFields();
 })
 
-function focusEmptyField(){
+function highlightMissingFields(){
   var children = $('#hidden-form').find('input');
   var index;
 
   for ( var i = 0; i < children.length; i++ ){
-    if ($(children[i]).val() === ''){
-      index = index || i
+    if (!$(children[i]).val()){
+      if ( !index && index !== 0 ){
+        index = i
+      }
     }
   }
 
@@ -28,8 +47,3 @@ function enableFields(){
 if ('<%= @error %>') {
   console.log('error modal')
 }
-
-$('#sign_up_name').val('<%= @name %>')
-$('#sign_up_company_name').val('<%= @company_name %>')
-$('#sign_up_company_size').val('<%= @company_size %>')
-$('#sign_up_phone_number').val('<%= @phone_number %>')

@@ -15,7 +15,6 @@ $(function(){
         window.setTimeout(function(){
           $('#sign_up_email').blur();
         },0)
-        console.log('keydown fire')
         submitForm();
       } else {
         $('#email-warning').show();
@@ -29,7 +28,6 @@ $(function(){
     var firedAt = new Date()
     if ( $('#form-container').css('height') === '693px' && Math.floor(timestamp.getTime()/1000) !== Math.floor(firedAt.getTime()/1000) ){
       if ( $('#sign_up_email').val().match(/\w+@\w+/) !== null ){
-        console.log('focusout fire')
         submitForm();
       } else {
         $('#email-warning').show();

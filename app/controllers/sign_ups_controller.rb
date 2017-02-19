@@ -33,11 +33,17 @@ class SignUpsController < ApplicationController
 
     begin
       response = Clearbit::Enrichment.find(email: email, stream: true)
-      if response
+
+      if response && response.person != nil
+        p response
         @name = response.person.name.fullName
         @company_name = response.person.employment.name
-        p @name
-        p @company_name
+
+        if response.company
+          @phone_number = response.company.phone
+          @company_size = response.company.metrics.employees
+        end
+        
         @error = nil
       end
 
