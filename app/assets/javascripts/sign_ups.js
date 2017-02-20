@@ -1,8 +1,6 @@
 $(function(){
 
-  // To ensure submit is called only once is two listeners are fired together
   var email;
-  var timestamp;
   var keyPressPause; 
 
   document.getElementById('sign_up_email').addEventListener('keydown', function(e) {
@@ -19,12 +17,6 @@ $(function(){
         e.preventDefault()
       }
       
-
-      // Hacky way of preventing focus shifting, thus scrolling the div
-      // $('#sign_up_email').focus();
-      // window.setTimeout(function(){
-      //   $('#sign_up_email').blur();
-      // },0)
       submitForm();
     } 
 
